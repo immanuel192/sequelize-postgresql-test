@@ -1,0 +1,19 @@
+{
+  "name": "sequelize-postgresql-test",
+  "version": "1.0.0",
+  "description": "Simple test for Sequelize / Postgresql / Docker with microservices architecture",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/immanuel192/sequelize-postgresql-test.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/immanuel192/sequelize-postgresql-test/issues"
+  },
+  "homepage": "https://github.com/immanuel192/sequelize-postgresql-test#readme"
+}

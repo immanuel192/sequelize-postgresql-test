@@ -1,11 +1,12 @@
-/**
- * Module dependencies.
- */
-
+// Load config
+require("../config");
 var app = require('../index');
 var debug = require('debug')('temp:server');
 var http = require('http');
 
+// init database
+var database = require("../core/database");
+database.initialize();
 /**
  * Get port from environment and store in Express.
  */
@@ -22,7 +23,6 @@ var server = http.createServer(app);
 /**
  * Listen on provided port, on all network interfaces.
  */
-
 server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);

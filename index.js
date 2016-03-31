@@ -1,6 +1,5 @@
 // https://github.com/m1x0n/express-sequelize-postgres-todo
 
-require("./config");
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');

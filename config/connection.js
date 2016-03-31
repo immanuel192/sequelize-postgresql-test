@@ -3,12 +3,12 @@
  */
 exports.connection = {
 	user: 'postgres',
-	password: '123456',
+	password: '',
 	database: 'mydb',
 	dialect: 'postgres',
 	options: {
 		dialect: 'postgres',
-		host: '127.0.0.1',
+		host: '172.17.0.1',
 		port: 5432,
 		logging: false
 	}

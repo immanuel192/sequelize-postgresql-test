@@ -2,9 +2,7 @@ var seneca = require('seneca')()
     .use('seneca-amqp-transport', {
         queues: {
             response: {
-                options: {
-                    "exclusive": false
-                }
+                "exclusive": false
             }
         }
     })

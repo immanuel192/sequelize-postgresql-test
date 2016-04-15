@@ -1,16 +1,11 @@
 var seneca = require('seneca')()
-    .use('seneca-amqp-transport', {
-        queues: {
-            response: {
-                "exclusive": false
-            }
-        }
-    })
+    .use('seneca-amqp-transport')
     .client({
         type: 'amqp',
         url: 'amqp://guest:guest@192.241.179.185:5672',
         pin: 'role:create'
     });
+    
 
 for (var i = 0; i < 100; i++) {
     var t1 = Date.now();

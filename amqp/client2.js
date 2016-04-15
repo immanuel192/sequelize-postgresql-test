@@ -9,7 +9,8 @@ var seneca = require('seneca')()
     for (var i = 0; i < 100; i++) {
         var t1 = Date.now();
         seneca.act('role:create,foo:1,zed:' + i+",t1:"+t1, function(err, ret) {
-            var dt = ret.when - ret.t1;
-            console.log("with i = " + ret.zed + "; delta t = " + dt);
+			var when =Date.now(); 
+            var dt = when - ret.when;
+            console.log("with i = " + ret.zed + "; delta t = " + dt+ "; t1 = " + ret.when + " ; t2= " + when);
         });
     }

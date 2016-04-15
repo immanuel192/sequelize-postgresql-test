@@ -1,33 +1,20 @@
-var config = {
-    seneca: {
-        // Any global seneca option 
-        timeout: 3000
-    },
-    amqp: {
-        // Broker connection settings 
-        hostname: '192.241.179.185',
-        port: 5672,
-        username: 'guest',
-        password: 'guest'
-    },
-    pins: {
-        // Pins used in .client and .listen methods 
-        client: ['role:entity']
-        // listen: ['level:info', 'cmd:rollback,proc:status']
-    },
-    autoStart: false
-};
+var amqp = require('amqp');
+var connection = amqp.createConnection({
+    host: '192.241.179.185', port: 5672
+});
+var count = 1;
 
-var seneca = require('seneca-amqp')(config)
+connection.on('ready', function() {
+    var sendMessage = function(connection, queue_name, payload) {
+        var encoded_payload = JSON.stringify(payload);
+        connection.publish(queue_name, encoded_payload);
+    }
 
-seneca.start()
-    .then(function() {
-        for (var i = 0; i < 100; i++) {
-            var t1 = Date.now();
-            seneca.act('role:entity,foo:1,zed:' + i, function(err, ret) {
-                var dt = ret.when - t1;
-                console.log("with i = " + i + "; delta t = " + dt);
-            });
-        }
-    })
-    .catch(console.error);
+    for (var i = 0; i < 100; i++) {
+        var payload = {
+            zed: i,
+            t1: Date.now()
+        };
+        sendMessage(connection, 'my-queue', payload);
+    }
+})

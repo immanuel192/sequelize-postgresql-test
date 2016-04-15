@@ -1,5 +1,13 @@
 var seneca = require('seneca')()
-    .use('seneca-amqp-transport')
+    .use('seneca-amqp-transport', {
+        queues: {
+            response: {
+                options: {
+                    "exclusive": false
+                }
+            }
+        }
+    })
     .client({
         type: 'amqp',
         url: 'amqp://guest:guest@192.241.179.185:5672',

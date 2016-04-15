@@ -1,5 +1,13 @@
 var seneca = require('seneca')()
-    .use('seneca-amqp-transport')
+    .use('seneca-amqp-transport', {
+        queues: {
+            response: {
+                options: {
+                    "exclusive": false
+                }
+            }
+        }
+    })
     .add('role:create,foo:1', function(args, done) {
         var when = Date.now();
         var dt = when - args.t1;

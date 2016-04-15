@@ -6,11 +6,12 @@ var seneca = require('seneca')()
         pin: 'role:create'
     });
 
-    for (var i = 0; i < 100; i++) {
-        var t1 = Date.now();
-        seneca.act('role:create,foo:1,zed:' + i+",t1:"+t1, function(err, ret) {
-			var when =Date.now(); 
-            var dt = when - ret.when;
-            console.log("with i = " + ret.zed + "; delta t = " + dt+ "; t1 = " + ret.when + " ; t2= " + when);
-        });
-    }
+for (var i = 0; i < 100; i++) {
+    var t1 = Date.now();
+    seneca.act('role:create,foo:1,zed:' + i + ",t1:" + t1, function(err, ret) {
+        var when = Date.now();
+        var dt = when - ret.when;
+        var dt2 = when - ret.t1;
+        console.log("with i = " + ret.zed + "; dt1 = " + dt + "; dt2 = " + dt2 + " ;  t1 = " + ret.when + " ; t2= " + when);
+    });
+}

@@ -5,7 +5,7 @@
 			"name": "Launch",
 			"type": "node",
 			"request": "launch",
-			"program": "${workspaceRoot}\\amqp\\client3.js",
+			"program": "${workspaceRoot}\\amqp\\server.js",
 			"stopOnEntry": false,
 			"args": [],
 			"cwd": "${workspaceRoot}",

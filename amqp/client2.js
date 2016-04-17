@@ -1,6 +1,7 @@
 var seneca = require('seneca')()
     .use('seneca-amqp-transport')
     .client({
+        name: 'dffsda',
         type: 'amqp',
         url: 'amqp://guest:guest@192.241.179.185:5672',
         pin: 'role:create'
@@ -30,6 +31,6 @@ setInterval(function () {
         var when = Date.now();
         var dt = when - ret.when;
         var dt2 = when - ret.t1;
-        console.log("with i = " + ret.zed + "; dt1 = " + dt + "; dt2 = " + dt2 );
+        console.log("with i = " + ret.zed + "; dt1 = " + dt + "; dt2 = " + dt2);
     });
-}, 50);
+}, 100);

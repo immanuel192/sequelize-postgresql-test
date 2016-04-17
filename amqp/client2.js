@@ -32,4 +32,4 @@ setInterval(function () {
         var dt2 = when - ret.t1;
         console.log("with i = " + ret.zed + "; dt1 = " + dt + "; dt2 = " + dt2 );
     });
-}, 100);
+}, 50);
